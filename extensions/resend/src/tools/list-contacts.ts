@@ -1,22 +1,28 @@
-import { Resend } from "resend";
-import { API_KEY } from "../utils/constants";
-import "cross-fetch/polyfill";
-
-const resend = new Resend(API_KEY);
+import { getResend, withResend } from "../lib/oauth";
+import { compactPagination, unwrapResponse } from "./utils";
 
 type Input = {
   /**
-   * The ID of the audience to list contacts from.
-   * You must get this ID by using the list-audiences tool first.
+   * Segment ID to filter by. Get it from list-segments.
    */
-  audienceId: string;
+  segmentId?: string;
+  /** Legacy audience ID to filter by. Prefer segmentId for new calls. */
+  audienceId?: string;
+  /** Maximum number of contacts to return. */
+  limit?: number;
+  /** Return contacts after this cursor. */
+  after?: string;
+  /** Return contacts before this cursor. */
+  before?: string;
 };
 
 const tool = async (input: Input) => {
-  const contacts = await resend.contacts.list({
-    audienceId: input.audienceId,
+  const response = await getResend().contacts.list({
+    ...compactPagination(input),
+    ...(input.segmentId ? { segmentId: input.segmentId } : {}),
+    ...(input.audienceId ? { audienceId: input.audienceId } : {}),
   });
-  return contacts;
+  return unwrapResponse(response, "list contacts");
 };
 
-export default tool;
+export default withResend(tool);

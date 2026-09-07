@@ -1,5 +1,24 @@
 # Bitbucket Changelog
 
+## [Update] - 2026-08-22
+
+- Added Search All Open Pull Requests command to browse open PRs across the workspace
+
+## [Update] - 2025-11-17
+
+- Update shortcuts to be consistent across MacOS and Windows
+
+## [Update] - 2025-11-07
+
+- Bump dependencies to latest versions
+- Add Windows as a supported platform
+- Add publish script to package.json
+
+## [Update] - 2025-09-30
+
+- Swap to API tokens, as App Passwords are no longer supported by Bitbucket.
+- Change endpoint used for getting my open pull requests (as the previous one didn't support API tokens)
+
 ## [Maintenance] - 2025-06-18
 
 - Use the npm official registry

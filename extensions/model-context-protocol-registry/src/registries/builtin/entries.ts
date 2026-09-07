@@ -3,6 +3,26 @@ import type { RegistryEntry } from "./types";
 
 export const OFFICIAL_ENTRIES: RegistryEntry[] = [
   {
+    name: "atono",
+    title: "Atono",
+    description:
+      "AI-powered project management for product teams. Connect your AI assistant to Atono's workflow platform to create and update stories, track bugs, manage team assignments, and document fixes—all through natural language commands.",
+    icon: {
+      source: {
+        light: "https://atono-test.directus.app/assets/feaa7f21-4bbe-4164-b725-ff2729725cbf",
+        dark: "https://atono-test.directus.app/assets/869c76cd-bb5f-459c-88d1-2315a7b8a545",
+      },
+    },
+    homepage: "https://docs.atono.io/docs/mcp-server-for-atono/",
+    configuration: {
+      command: "docker",
+      args: ["run", "-i", "--rm", "-e", "X_API_KEY", "atonoai/atono-mcp-server"],
+      env: {
+        X_API_KEY: "<YOUR_API_KEY_HERE>",
+      },
+    },
+  },
+  {
     name: "brave-search",
     title: "Brave Search",
     description:
@@ -37,6 +57,18 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
         "--api-key",
         "YOUR_API_KEY_HERE",
       ],
+    },
+  },
+  {
+    name: "circleback",
+    title: "Circleback",
+    description:
+      "Circleback's Model Context Protocol (MCP) server provides AI agents access to your Circleback data. It has tools available for searching and accessing meetings, transcripts, calendar events, emails, people, companies, and more.",
+    icon: "circleback.svg",
+    homepage: "https://circleback.ai",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://circleback.ai/api/mcp"],
     },
   },
   {
@@ -103,6 +135,18 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
     },
   },
   {
+    name: "glif",
+    title: "Glif",
+    description:
+      "Glif is a media-generation agent: generate images, video, and audio, transcribe, and chain multi-step media workflows from natural language. Hosted remote server with OAuth sign-in.",
+    icon: "https://glif.app/glif-icon-512.png",
+    homepage: "https://glif.app/mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://glif.app/api/mcp"],
+    },
+  },
+  {
     name: "e2b",
     title: "E2B Code Interpreter",
     description: "A Model Context Protocol server for running code in a secure sandbox by [E2B](https://e2b.dev/).",
@@ -139,7 +183,7 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
     title: "Google Drive",
     description: "This MCP server integrates with Google Drive to allow listing, reading, and searching over files.",
     icon: "https://svgl.app/library/drive.svg",
-    homepage: "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+    homepage: "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/gdrive",
     configuration: {
       command: "npx",
       args: ["-y", "@modelcontextprotocol/server-gdrive"],
@@ -257,6 +301,21 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
     },
   },
   {
+    name: "posteverywhere",
+    title: "PostEverywhere",
+    description:
+      "Social media publishing MCP server. Schedule and post to 11 platforms (Instagram, TikTok, YouTube, LinkedIn, X, Facebook, Threads, Pinterest, Bluesky, Telegram, Discord) with media upload, AI captions, campaigns, and analytics through natural language.",
+    icon: "https://app.posteverywhere.ai/favicon.svg",
+    homepage: "https://developers.posteverywhere.ai/integrations/mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "@posteverywhere/mcp"],
+      env: {
+        POSTEVERYWHERE_API_KEY: "<YOUR_API_KEY_HERE>",
+      },
+    },
+  },
+  {
     name: "prisma",
     title: "Prisma",
     description:
@@ -266,6 +325,62 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
     configuration: {
       command: "npx",
       args: ["-y", "mcp-remote", "https://mcp.prisma.io/mcp"],
+    },
+  },
+  {
+    name: "razuna",
+    title: "Razuna",
+    description:
+      "AI-powered digital asset management for teams. Connect your AI assistant to Razuna's platform to search, organize, and manage your files using natural language commands.",
+    icon: {
+      source: {
+        light:
+          "https://app.razuna.com/file/remote?i=6959b8cf1e1400a2cce596fc&f=t&dl=t&c=a0f49bf3ea58a5c444af4cc489e27dcf&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OTU5YjhjZjFlMTQwMGEyY2NlNTk2ZmMmZj10JmRsPXQmYz1hMGY0OWJmM2VhNThhNWM0NDRhZjRjYzQ4OWUyN2RjZiIsInR5cGUiOiJkaXJlY3QifQ.usKNeusn0MmM9xu7gi2OyWBoZ9fOEVeMPiXDrP0zMwo",
+        dark: "https://app.razuna.com/file/remote?i=6959b8cf1e1400a2cce596fc&f=t&dl=t&c=a0f49bf3ea58a5c444af4cc489e27dcf&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiIvZmlsZS9yZW1vdGU_aT02OTU5YjhjZjFlMTQwMGEyY2NlNTk2ZmMmZj10JmRsPXQmYz1hMGY0OWJmM2VhNThhNWM0NDRhZjRjYzQ4OWUyN2RjZiIsInR5cGUiOiJkaXJlY3QifQ.usKNeusn0MmM9xu7gi2OyWBoZ9fOEVeMPiXDrP0zMwo",
+      },
+    },
+    homepage: "https://help.razuna.com/p/mcp-server",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.razuna.YOUR_REGION/sse?access-token=YOUR_ACCESS_TOKEN"],
+    },
+  },
+  {
+    name: "Rube",
+    title: "Rube - by Composio",
+    description:
+      "Rube is a MCP server that connects your AI tools to 500+ apps like Gmail, Slack, GitHub, and Notion. Simply install it in your AI client, authenticate once with your apps, and start asking your AI to perform real actions like 'Send an email' or 'Create a task.'",
+    icon: "https://files.buildwithfern.com/v3composio.docs.buildwithfern.com/2025-08-25T08:13:31.781Z/assets/logo.svg",
+    homepage: "https://rube.composio.dev",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://rube.composio.dev/mcp"],
+      env: {
+        npm_config_yes: "true",
+      },
+    },
+  },
+  {
+    name: "webhound",
+    title: "Webhound",
+    description:
+      "Run private, budgeted reports and datasets with Hound, Webhound's research harness built with DeepSeek V4 Pro and GPT-5.4. The user's dollar budget controls research effort, and each connection authenticates to that user's own Webhound account through OAuth.",
+    icon: "https://www.webhound.ai/favicon.ico",
+    homepage: "https://github.com/WebhoundAI/webhound-mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://api.webhound.ai/api/v2/mcp"],
+    },
+  },
+  {
+    name: "sanity",
+    title: "Sanity",
+    description: "Direct access to your Sanity projects (content, datasets, releases, schemas) and agent rules.",
+    icon: "sanity.svg",
+    homepage: "https://www.sanity.io/docs/ai/mcp-server",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.sanity.io", "--transport", "http-only"],
     },
   },
   {
@@ -368,6 +483,30 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
     configuration: {
       command: "npx",
       args: ["-y", "mcp-remote", "https://mcp.thena.ai/sse"],
+    },
+  },
+  {
+    name: "trends-mcp",
+    title: "Trends MCP",
+    description:
+      "Live cross-platform trend data for AI agents. Query Google, YouTube, TikTok, Reddit, Amazon, Wikipedia, news, npm, Steam, and more: historical series, growth rates, and live leaderboards in one connection. Free API key at trendsmcp.ai.",
+    icon: "https://www.trendsmcp.ai/static/pages/trendsmcp/assets/trend.svg",
+    homepage: "https://trendsmcp.ai",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://api.trendsmcp.ai/mcp", "--header", "Authorization: Bearer YOUR_API_KEY"],
+    },
+  },
+  {
+    name: "tripsy",
+    title: "Tripsy",
+    description:
+      "Tripsy's official MCP server connects AI assistants to your Tripsy account so you can create trips and manage flights, stays, activities, expenses, and itinerary details through natural language.",
+    icon: "https://framerusercontent.com/images/4xxcLxeTur6SPIrEG8pq54OT3Y.png",
+    homepage: "https://tripsy.app",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.tripsy.app"],
     },
   },
   {
@@ -500,19 +639,31 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
       command: "npx",
       args: ["-y", "@apify/actors-mcp-server"],
       env: {
-        APIFY_API_TOKEN: "YOUR_API_TOKEN_HERE",
+        APIFY_TOKEN: "YOUR_API_TOKEN_HERE",
       },
     },
   },
   {
     name: "nuxt",
     title: "Nuxt",
-    description: "Access Nuxt documentation and modules with the public Nuxt MCP server",
+    description: "Access Nuxt documentation, migration guide, modules, and blog posts with the public Nuxt MCP server",
     icon: "nuxt.svg",
-    homepage: "https://mcp.nuxt.com/",
+    homepage: "https://nuxt.com/mcp",
     configuration: {
       command: "npx",
-      args: ["mcp-remote", "https://mcp.nuxt.space/sse"],
+      args: ["mcp-remote", "https://nuxt.com/mcp"],
+    },
+  },
+  {
+    name: "nuxt-ui",
+    title: "Nuxt UI",
+    description:
+      "Access Nuxt UI documentation, components, and configuration with the official Nuxt UI Model Context Protocol (MCP) server.",
+    icon: "nuxt.svg",
+    homepage: "https://ui.nuxt.com/docs/getting-started/ai/mcp",
+    configuration: {
+      command: "npx",
+      args: ["mcp-remote", "https://ui.nuxt.com/mcp"],
     },
   },
   {
@@ -550,15 +701,203 @@ export const OFFICIAL_ENTRIES: RegistryEntry[] = [
     name: "anytype",
     title: "Anytype",
     description:
-      "A Model Context Protocol (MCP) server for Anytype that enables AI assistants to seamlessly interact with Anytype's API through natural language. Manage spaces, objects, properties, types and more in your knowledge base.",
+      "An MCP server enabling AI assistants to interact with Anytype - your safe haven for digital collaboration - to organize channels, pages, lists, and more through natural language.",
     icon: "anytype.png",
     homepage: "https://github.com/anyproto/anytype-mcp",
     configuration: {
       command: "npx",
       args: ["-y", "@anyproto/anytype-mcp"],
       env: {
-        OPENAPI_MCP_HEADERS: '{"Authorization":"Bearer <YOUR_API_KEY>", "Anytype-Version":"2025-05-20"}',
+        OPENAPI_MCP_HEADERS: '{"Authorization":"Bearer <YOUR_API_KEY>", "Anytype-Version":"2025-11-08"}',
       },
+    },
+  },
+  {
+    name: "gen-pdf",
+    title: "Gen-PDF",
+    description:
+      "MCP server to generate professional looking PDF. Perfect for creating reports, invoices, contracts, and more.",
+    icon: "https://gen-pdf.com/favicon.ico",
+    homepage: "https://gen-pdf.com",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://gen-pdf.com/mcp"],
+    },
+  },
+  {
+    name: "linear",
+    title: "Linear",
+    description:
+      "The Model Context Protocol (MCP) server provides a standardized interface that allows any compatible AI model or agent to access your Linear data in a simple and secure way. The Linear MCP server has tools available for finding, creating, and updating objects in Linear like issues, projects, and comments.",
+    icon: "https://svgl.app/library/linear.svg",
+    homepage: "https://linear.app/docs/mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
+    },
+  },
+  {
+    name: "olostep",
+    title: "Olostep",
+    description:
+      "A Model Context Protocol server for Olostep, the web data API for AI. Search the web, scrape any URL into clean Markdown/HTML/JSON, crawl entire sites, batch-process up to 10k URLs, and get cited AI answers — all through one API.",
+    icon: "https://www.olostep.com/images/olostep-logo-cropped.svg",
+    homepage: "https://github.com/olostep/olostep-mcp-server",
+    configuration: {
+      command: "npx",
+      args: ["-y", "olostep-mcp"],
+      env: {
+        OLOSTEP_API_KEY: "YOUR_API_KEY_HERE",
+      },
+    },
+  },
+  {
+    name: "routemesh",
+    title: "RouteMesh",
+    description:
+      "Query multiple EVM blockchain chains from one MCP server. Pull on-chain data including blocks, transactions, logs, balances, and fees with RouteMesh routing and failover.",
+    icon: "https://routeme.sh/icon.png",
+    homepage: "https://github.com/routemesh/routemesh-mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "@routemesh/mcp"],
+      env: {
+        ROUTEMESH_API_KEY: "YOUR_API_KEY_HERE",
+      },
+    },
+  },
+  {
+    name: "jellypod",
+    title: "Jellypod",
+    description:
+      "Jellypod's Model Context Protocol server lets AI assistants create, edit, and publish conversational AI podcasts and video episodes.",
+    icon: "https://www.jellypod.com/assets/app-icon-square.png",
+    homepage: "https://www.jellypod.com/mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.jellypod.com/mcp"],
+    },
+  },
+  {
+    name: "plori",
+    title: "plori",
+    description:
+      "Create and drive cloud AI agents in persistent environments with durable disks, real CLI tools, and memory. Supports runs, human input, scheduling, connections, and workflows over remote MCP. Sign in with OAuth 2.1, or use an API key for headless setups.",
+    icon: "https://plori.ai/icon-512.png",
+    homepage: "https://plori.ai/mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://api.plori.ai/mcp"],
+    },
+  },
+  {
+    name: "appwrite",
+    title: "Appwrite",
+    description:
+      "The official Appwrite MCP server lets AI assistants securely inspect and manage Appwrite projects and resources through Appwrite's API.",
+    icon: "https://mcp.appwrite.io/favicon.svg",
+    homepage: "https://github.com/appwrite/mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.appwrite.io/"],
+    },
+  },
+  {
+    name: "agentcard",
+    title: "Agentcard",
+    description:
+      "Prepaid virtual cards for AI agents. Fund a wallet, set spend caps and human approvals, and your agent mints a one-time virtual card for each purchase that works at any merchant. Connects to the remote Agentcard MCP server over OAuth 2.0.",
+    icon: "https://www.agentcard.sh/logo-icon.png",
+    homepage: "https://agentcard.sh",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.agentcard.sh/mcp"],
+    },
+  },
+  {
+    name: "usemycontext",
+    title: "UseMyContext",
+    description:
+      "The personal context layer for AI: one user-owned profile plus files, read by any MCP client so you never re-introduce yourself. Tools for profile, file search and reads, cited answers from your documents, and exact table queries. Connects to the remote UseMyContext server over OAuth 2.1.",
+    icon: "usemycontext.svg",
+    homepage: "https://usemycontext.ai",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.usemycontext.ai/mcp"],
+    },
+  },
+  {
+    name: "jobyap",
+    title: "JobYap",
+    description:
+      "Search job postings aggregated from companies' official careers sites — salaries, locations, and a community discussion thread on every job. Remote Streamable HTTP MCP server; no auth required.",
+    icon: "https://raw.githubusercontent.com/jobyap/agent-skills/main/assets/logo.png",
+    homepage: "https://jobyap.com/agents",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.jobyap.com/mcp"],
+    },
+  },
+  {
+    name: "tendem",
+    title: "Tendem",
+    description:
+      "Delegate tasks to vetted human experts - research, competitive analysis, fact-checking, copywriting, editing, design review, presentation polish, data cleaning and list building. Submit a task in natural language; Tendem's orchestrator scopes it and quotes a transparent price, and after explicit approval a vetted human expert executes it and returns verified results as markdown plus files. Remote Streamable HTTP MCP server with OAuth 2.0 sign-in on first use.",
+    icon: "https://framerusercontent.com/images/EGNlwavPB2tW8etz63vecfpJu0.png",
+    homepage: "https://github.com/Toloka/tendem-mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.tendem.ai/mcp?utm_hash=66fdb1535f"],
+    },
+  },
+  {
+    name: "structured",
+    title: "Structured",
+    description:
+      "Structured is an all-in-one day planner that combines tasks and to-dos in a visual timeline. Its MCP server lets AI assistants view schedules and inbox tasks, and create, update, complete, delete, and manage recurring tasks. Remote Streamable HTTP server with Structured Cloud OAuth sign-in; some features require Structured Pro.",
+    icon: "https://web.structured.app/logo512.png",
+    homepage: "https://mcp.structured.app",
+    configuration: {
+      command: "npx",
+      args: [
+        "-y",
+        "mcp-remote",
+        "https://mcp.structured.app/mcp",
+        "36933",
+        "--transport",
+        "http-only",
+        "--static-oauth-client-info",
+        '{"client_id":"4b33fb93-0eac-489f-974b-1a9fa108f4e9"}',
+        "--static-oauth-client-metadata",
+        '{"scope":"email"}',
+      ],
+    },
+  },
+  {
+    name: "one",
+    title: "One",
+    description:
+      "One is an MCP server that connects your AI tools to 700+ apps like Gmail, Slack, Stripe, Shopify, HubSpot, Notion, and Linear. Four tools cover everything: list your connected accounts, search a platform's actions, read an action's real API documentation, and execute it. Remote Streamable HTTP server with One OAuth sign-in, so no API keys are stored locally.",
+    icon: "https://assets.withone.ai/logos/one-logo.png",
+    homepage: "https://www.withone.ai/docs/mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.withone.ai/mcp"],
+      env: {
+        npm_config_yes: "true",
+      },
+    },
+  },
+  {
+    name: "smart-me",
+    title: "smart-me",
+    description:
+      "Your building's energy in real time: live meter readings, quarter-hourly load profiles and daily series, EV charging stations with their sessions and load-management groups, and the tariffs, invoice positions and ZEV (tenant) billing of a property on the smart-me platform. The remote Streamable HTTP server uses smart-me OAuth sign-in through an `mcp-remote` bridge.",
+    icon: "https://web.smart-me.com/wp-content/uploads/2025/09/sm_favicon.png",
+    homepage: "https://github.com/eCarUp/smart-me-mcp",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://mcp.smart-me.com/mcp"],
     },
   },
 ];
@@ -600,6 +939,18 @@ export const COMMUNITY_ENTRIES: RegistryEntry[] = [
       env: {
         AIRTABLE_API_KEY: "YOUR_API_KEY_HERE",
       },
+    },
+  },
+  {
+    name: "alai",
+    title: "Alai",
+    description:
+      "Generate, edit, and export high-quality AI presentations to PDF, PPTX, or a shareable link. Supports themes, vibes, and creative slide variants.",
+    icon: "https://storage.getalai.com/Alai%20Logo%20-%20Gradient%20BG.png",
+    homepage: "https://getalai.com",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://slides-api.getalai.com/mcp/"],
     },
   },
   {
@@ -736,6 +1087,18 @@ export const COMMUNITY_ENTRIES: RegistryEntry[] = [
     },
   },
   {
+    name: "memo",
+    title: "memo",
+    description:
+      "Local-first persistent memory for AI agents. MLX embeddings on Apple Silicon (CPU fallback elsewhere), sqlite-vec + BM25 hybrid search, and markdown-on-disk storage compatible with Obsidian. No cloud APIs or accounts required.",
+    icon: "https://raw.githubusercontent.com/jagoff/memo/master/docs/logo-400.png",
+    homepage: "https://github.com/jagoff/memo",
+    configuration: {
+      command: "uvx",
+      args: ["--from", "mlx-memo", "memo-mcp"],
+    },
+  },
+  {
     name: "monday",
     title: "Monday",
     description:
@@ -752,6 +1115,30 @@ export const COMMUNITY_ENTRIES: RegistryEntry[] = [
     },
   },
   {
+    name: "nika",
+    title: "Nika",
+    description:
+      "Nika is a workflow language for AI — one file, four verbs, one Rust binary. Its MCP server is a read-only oracle: agents validate workflows (nika_check, nika_explain) and learn the language (schema, templates, examples, catalogs) without executing anything. Running stays on the CLI, budget-capped and trace-verified — inspect freely, execute deliberately.",
+    icon: "https://github.com/supernovae-st.png",
+    homepage: "https://github.com/supernovae-st/nika",
+    configuration: {
+      command: "nika",
+      args: ["mcp"],
+    },
+  },
+  {
+    name: "optionsahoy",
+    title: "OptionsAhoy",
+    description:
+      "Equity-compensation tax optimizer. ISO/AMT exercise scheduling, NSO, RSU sell-vs-hold, QSBS eligibility, single-stock concentration risk, and protective puts/collars, computed against federal plus 50-state and DC tax code over multi-year horizons.",
+    icon: "https://raw.githubusercontent.com/AlvisoOculus/optionsahoy-mcp/main/assets/logo-400.png",
+    homepage: "https://optionsahoy.com/for-agents",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://optionsahoy.com/mcp"],
+    },
+  },
+  {
     name: "paperless-ngx",
     title: "Paperless-NGX",
     description:
@@ -765,6 +1152,30 @@ export const COMMUNITY_ENTRIES: RegistryEntry[] = [
         PAPERLESS_URL: "http://your-paperless-instance:8000",
         PAPERLESS_API_KEY: "your-api-token",
       },
+    },
+  },
+  {
+    name: "stellary",
+    title: "Stellary",
+    description:
+      "AI-native project piloting and project management (open beta). Connect your AI assistant to Stellary workspaces through the hosted Streamable HTTP MCP server. Bearer PAT required.",
+    icon: "https://raw.githubusercontent.com/Anymfah/stellary-mcp/main/assets/logo-400.png",
+    homepage: "https://stellary.co/docs/mcp/",
+    configuration: {
+      command: "npx",
+      args: ["-y", "mcp-remote", "https://api.stellary.co/mcp", "--header", "Authorization: Bearer YOUR_API_KEY"],
+    },
+  },
+  {
+    name: "vc-deal-flow-signal",
+    title: "VC Deal Flow Signal",
+    description:
+      "GitHub-derived engineering acceleration signals for ~400 venture-backed startups across 20 sectors. Five read-only tools for VC sourcing — trending startups, sector lookup, individual signal, dataset summary, methodology. No API key required.",
+    icon: "https://signals.gitdealflow.com/icon.png",
+    homepage: "https://github.com/kindrat86/vc-deal-flow-signal",
+    configuration: {
+      command: "npx",
+      args: ["-y", "@gitdealflow/mcp-signal@latest"],
     },
   },
 ];
